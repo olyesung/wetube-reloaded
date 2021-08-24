@@ -3,11 +3,11 @@ import {
   getEdit,
   postEdit,
   logout,
+  see,
   startGithubLogin,
   finishGithubLogin,
   getChangePassword,
   postChangePassword,
-  see,
 } from "../controllers/userController";
 import {
   protectorMiddleware,

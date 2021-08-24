@@ -13,13 +13,13 @@ const isHeroku = process.env.NODE_ENV === "production";
 
 const s3ImageUploader = multerS3({
   s3: s3,
-  bucket: "yetube/images",
+  bucket: "wetubeee/images",
   acl: "public-read",
 });
 
 const s3VideoUploader = multerS3({
   s3: s3,
-  bucket: "yetube/videos",
+  bucket: "wetubeee/videos",
   acl: "public-read",
 });
 
@@ -30,6 +30,7 @@ export const localsMiddleware = (req, res, next) => {
   res.locals.isHeroku = isHeroku;
   next();
 };
+
 export const protectorMiddleware = (req, res, next) => {
   if (req.session.loggedIn) {
     return next();
@@ -38,6 +39,7 @@ export const protectorMiddleware = (req, res, next) => {
     return res.redirect("/login");
   }
 };
+
 export const publicOnlyMiddleware = (req, res, next) => {
   if (!req.session.loggedIn) {
     return next();
@@ -46,6 +48,7 @@ export const publicOnlyMiddleware = (req, res, next) => {
     return res.redirect("/");
   }
 };
+
 export const avatarUpload = multer({
   dest: "uploads/avatars/",
   limits: {
@@ -53,6 +56,7 @@ export const avatarUpload = multer({
   },
   storage: isHeroku ? s3ImageUploader : undefined,
 });
+
 export const videoUpload = multer({
   dest: "uploads/videos/",
   limits: {

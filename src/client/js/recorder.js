@@ -1,5 +1,4 @@
 import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
-
 const actionBtn = document.getElementById("actionBtn");
 const video = document.getElementById("preview");
 
@@ -36,7 +35,7 @@ const handleDownload = async () => {
   await ffmpeg.run("-i", files.input, "-r", "60", files.output);
 
   await ffmpeg.run(
-    "-1",
+    "-i",
     files.input,
     "-ss",
     "00:00:01",
@@ -93,8 +92,7 @@ const handleStart = () => {
 
 const init = async () => {
   stream = await navigator.mediaDevices.getUserMedia({
-    audio: true,
-    // video: false,
+    audio: false,
     video: {
       width: 1024,
       height: 576,
