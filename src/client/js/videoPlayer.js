@@ -86,10 +86,10 @@ const handleFullscreen = () => {
 };
 
 const handelKey = (e) => {
-  if (e.which == 32) {
+  if (e.which === 32) {
     handlePlayClick();
   }
-  if (e.which == 70) {
+  if (e.which === 70) {
     handleFullScreen();
   }
 };
