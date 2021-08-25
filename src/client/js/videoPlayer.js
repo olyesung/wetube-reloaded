@@ -26,29 +26,56 @@ const handlePlayClick = (e) => {
   playBtnIcon.classList = video.paused ? "fas fa-play" : "fas fa-pause";
 };
 
-const handleMuteClick = (e) => {
+const handleSound = () => {
   if (video.muted) {
     video.muted = false;
+    volumeRange.value = volumeValue;
+    volumeBtn.className = "fas fa-volume-up";
   } else {
     video.muted = true;
+    volumeRange.value = 0;
+    volumeBtn.className = "fas fa-volume-mute";
   }
-  muteBtnIcon.classList = video.muted
-    ? "fas fa-volume-mute"
-    : "fas fa-volume-up";
-  volumeRange.value = video.muted ? 0 : volumeValue;
 };
 
-const handleVolumeChange = (event) => {
+// const handleMuteClick = (e) => {
+//   if (video.muted) {
+//     video.muted = false;
+//   } else {
+//     video.muted = true;
+//   }
+//   muteBtnIcon.classList = video.muted
+//     ? "fas fa-volume-mute"
+//     : "fas fa-volume-up";
+//   volumeRange.value = video.muted ? 0 : volumeValue;
+// };
+const handleVolume = (event) => {
   const {
     target: { value },
   } = event;
   if (video.muted) {
     video.muted = false;
-    muteBtn.innerText = "Mute";
+    muteBtn.className = "fas fa-volume-mute";
   }
-  volumeValue = value;
-  video.volume = value;
+  if (value === "0") {
+    muteBtn.className = "fas fa-volume-off";
+  } else {
+    muteBtn.className = "fas fa-volume-up";
+  }
+  video.volume = volumeValue = value;
 };
+
+// const handleVolumeChange = (event) => {
+//   const {
+//     target: { value },
+//   } = event;
+//   if (video.muted) {
+//     video.muted = false;
+//     muteBtn.innerText = "Mute";
+//   }
+//   volumeValue = value;
+//   video.volume = value;
+// };
 
 const formatTime = (seconds) =>
   new Date(seconds * 1000).toISOString().substr(14, 5);
@@ -81,6 +108,15 @@ const handleFullscreen = () => {
   }
 };
 
+const handelKey = (e) => {
+  if (e.which == 32) {
+    handlePlayClick();
+  }
+  if (e.which == 70) {
+    handleFullScreen();
+  }
+};
+
 const hideControls = () => videoControls.classList.remove("showing");
 
 const handleMouseMove = () => {
@@ -108,8 +144,10 @@ const handleEnded = () => {
 };
 
 playBtn.addEventListener("click", handlePlayClick);
-muteBtn.addEventListener("click", handleMuteClick);
-volumeRange.addEventListener("input", handleVolumeChange);
+volumeBtn.addEventListener("click", handleSound);
+// muteBtn.addEventListener("click", handleMuteClick);
+volumeRange.addEventListener("input", handleVolume);
+// volumeRange.addEventListener("input", handleVolumeChange);
 video.addEventListener("loadedmetadata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
 video.addEventListener("ended", handleEnded);
