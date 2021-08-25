@@ -38,17 +38,6 @@ const handleSound = () => {
   }
 };
 
-// const handleMuteClick = (e) => {
-//   if (video.muted) {
-//     video.muted = false;
-//   } else {
-//     video.muted = true;
-//   }
-//   muteBtnIcon.classList = video.muted
-//     ? "fas fa-volume-mute"
-//     : "fas fa-volume-up";
-//   volumeRange.value = video.muted ? 0 : volumeValue;
-// };
 const handleVolume = (event) => {
   const {
     target: { value },
@@ -64,18 +53,6 @@ const handleVolume = (event) => {
   }
   video.volume = volumeValue = value;
 };
-
-// const handleVolumeChange = (event) => {
-//   const {
-//     target: { value },
-//   } = event;
-//   if (video.muted) {
-//     video.muted = false;
-//     muteBtn.innerText = "Mute";
-//   }
-//   volumeValue = value;
-//   video.volume = value;
-// };
 
 const formatTime = (seconds) =>
   new Date(seconds * 1000).toISOString().substr(14, 5);
@@ -145,9 +122,7 @@ const handleEnded = () => {
 
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleSound);
-// muteBtn.addEventListener("click", handleMuteClick);
 volumeRange.addEventListener("input", handleVolume);
-// volumeRange.addEventListener("input", handleVolumeChange);
 video.addEventListener("loadedmetadata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
 timeline.addEventListener("input", handleTimelineChange);
