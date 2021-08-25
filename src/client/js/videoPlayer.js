@@ -17,7 +17,7 @@ let controlsMovementTimeout = null;
 let volumeValue = 0.5;
 video.volume = volumeValue;
 
-const handlePlayClick = (e) => {
+const handlePlayClick = () => {
   if (video.paused) {
     video.play();
   } else {
@@ -78,10 +78,10 @@ const handleFullscreen = () => {
   const fullscreen = document.fullscreenElement;
   if (fullscreen) {
     document.exitFullscreen();
-    fullScreenIcon.classList = "fas fa-expand";
+    fullScreenIcon.className = "fas fa-expand";
   } else {
     videoContainer.requestFullscreen();
-    fullScreenIcon.classList = "fas fa-compress";
+    fullScreenIcon.className = "fas fa-compress";
   }
 };
 
@@ -129,5 +129,5 @@ timeline.addEventListener("input", handleTimelineChange);
 fullScreenBtn.addEventListener("click", handleFullscreen);
 videoContainer.addEventListener("mousemove", handleMouseMove);
 videoContainer.addEventListener("mouseleave", handleMouseLeave);
-window.addEventListener("keydown", handelKey);
 video.addEventListener("ended", handleEnded);
+window.addEventListener("keydown", handelKey);
