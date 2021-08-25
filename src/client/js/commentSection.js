@@ -10,7 +10,7 @@ const addComment = (text, id) => {
   icon.className = "fas fa-comment";
   const span = document.createElement("span");
   span.innerText = ` ${text}`;
-  const span2 = document.createElement("span");
+  const span2 = document.createElement("a");
   span2.innerText = "❌";
   newComment.appendChild(icon);
   newComment.appendChild(span);
