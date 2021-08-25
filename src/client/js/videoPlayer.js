@@ -144,7 +144,7 @@ const handleEnded = () => {
 };
 
 playBtn.addEventListener("click", handlePlayClick);
-volumeBtn.addEventListener("click", handleSound);
+muteBtn.addEventListener("click", handleSound);
 // muteBtn.addEventListener("click", handleMuteClick);
 volumeRange.addEventListener("input", handleVolume);
 // volumeRange.addEventListener("input", handleVolumeChange);
