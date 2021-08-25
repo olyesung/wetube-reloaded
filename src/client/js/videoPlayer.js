@@ -55,12 +55,12 @@ const handleVolume = (event) => {
   } = event;
   if (video.muted) {
     video.muted = false;
-    muteBtn.className = "fas fa-volume-mute";
+    muteBtnIcon.className = "fas fa-volume-mute";
   }
   if (value === "0") {
-    muteBtn.className = "fas fa-volume-off";
+    muteBtnIcon.className = "fas fa-volume-off";
   } else {
-    muteBtn.className = "fas fa-volume-up";
+    muteBtnIcon.className = "fas fa-volume-up";
   }
   video.volume = volumeValue = value;
 };
