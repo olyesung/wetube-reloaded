@@ -57,14 +57,14 @@ const handleVolume = (event) => {
 const formatTime = (seconds) =>
   new Date(seconds * 1000).toISOString().substr(14, 5);
 
+const handleLoadedMetadata = () => {
+  timeline.max = Math.floor(video.duration);
+  totalTime.innerText = formatTime(Math.floor(video.duration));
+};
+
 const handleTimeUpdate = () => {
   currenTime.innerText = formatTime(Math.floor(video.currentTime));
   timeline.value = Math.floor(video.currentTime);
-};
-
-const handleLoadedMetadata = () => {
-  totalTime.innerText = formatTime(Math.floor(video.duration));
-  timeline.max = Math.floor(video.duration);
 };
 
 const handleTimelineChange = (event) => {
