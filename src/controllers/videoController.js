@@ -153,10 +153,10 @@ export const createComment = async (req, res) => {
 
 export const deleteComment = async (req, res) => {
   const { id } = req.params;
-  console.log(id);
   const {
     user: { _id },
   } = req.session;
+  const video = await Video.findById(id);
   const comment = await Comment.findById(id);
   if (!comment) {
     return res.status(404).render("404", { pageTitle: "Comment not found." });
@@ -165,5 +165,5 @@ export const deleteComment = async (req, res) => {
     return res.status(403).redirect("/");
   }
   await Comment.findByIdAndDelete(id);
-  return res.redirect("/");
+  return res.redirect(video.id);
 };
