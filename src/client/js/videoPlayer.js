@@ -17,11 +17,6 @@ let controlsMovementTimeout = null;
 let volumeValue = 0.5;
 video.volume = volumeValue;
 
-const handleLoadedMetadata = async () => {
-  totalTime.innerText = formatTime(Math.floor(video.duration));
-  timeline.max = await Math.floor(video.duration);
-};
-
 const handlePlayClick = () => {
   if (video.paused) {
     video.play();
@@ -67,6 +62,11 @@ const handleTimeUpdate = () => {
   timeline.value = Math.floor(video.currentTime);
 };
 
+const handleLoadedMetadata = async () => {
+  totalTime.innerText = formatTime(Math.floor(video.duration));
+  return (timeline.max = Math.floor(video.duration));
+};
+
 const handleTimelineChange = (event) => {
   const {
     target: { value },
@@ -90,7 +90,7 @@ const handelKey = (e) => {
     handlePlayClick();
   }
   if (e.which === 70) {
-    handleFullScreen();
+    return handleFullScreen();
   }
 };
 
