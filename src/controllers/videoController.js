@@ -156,7 +156,7 @@ export const deleteComment = async (req, res) => {
   const {
     user: { _id },
   } = req.session;
-  console.log(req.session);
+  console.log("🧡", req.session, "🧡");
   const comment = await Comment.findById(id);
   if (!comment) {
     return res.status(404).render("404", { pageTitle: "Comment not found." });
