@@ -87,14 +87,14 @@ const handleFullscreen = () => {
 };
 
 const handelKey = (event) => {
-  if (!textarea) {
-    if (event.keyCode == 32) {
-      handlePlayClick();
-    }
-    if (event.keyCode == 70) {
-      handleFullscreen();
-    }
+  // if (!textarea) {
+  if (event.keyCode == 32) {
+    handlePlayClick();
   }
+  if (event.keyCode == 70) {
+    handleFullscreen();
+  }
+  // }
 };
 
 const hideControls = () => videoControls.classList.remove("showing");
