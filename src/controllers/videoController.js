@@ -165,5 +165,6 @@ export const deleteComment = async (req, res) => {
     return res.status(403).redirect("/");
   }
   await Comment.findByIdAndDelete(id);
-  return res.redirect(`/videos/${id}`);
+  window.history.back();
+  // return res.redirect("/");
 };
