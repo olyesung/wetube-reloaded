@@ -57,13 +57,6 @@ const handleVolume = (event) => {
 const formatTime = (seconds) =>
   new Date(seconds * 1000).toISOString().substr(14, 5);
 
-const handleTimelineChange = (event) => {
-  const {
-    target: { value },
-  } = event;
-  video.currentTime = value;
-};
-
 const handleTimeUpdate = () => {
   currenTime.innerText = formatTime(Math.floor(video.currentTime));
   timeline.value = Math.floor(video.currentTime);
@@ -72,6 +65,13 @@ const handleTimeUpdate = () => {
 const handleLoadedMetadata = () => {
   totalTime.innerText = formatTime(Math.floor(video.duration));
   timeline.max = Math.floor(video.duration);
+};
+
+const handleTimelineChange = (event) => {
+  const {
+    target: { value },
+  } = event;
+  video.currentTime = value;
 };
 
 const handleFullscreen = () => {
