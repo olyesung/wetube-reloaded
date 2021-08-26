@@ -17,6 +17,11 @@ let controlsMovementTimeout = null;
 let volumeValue = 0.5;
 video.volume = volumeValue;
 
+const handleLoadedMetadata = async () => {
+  totalTime.innerText = formatTime(Math.floor(video.duration));
+  timeline.max = await Math.floor(video.duration);
+};
+
 const handlePlayClick = () => {
   if (video.paused) {
     video.play();
@@ -24,11 +29,6 @@ const handlePlayClick = () => {
     video.pause();
   }
   playBtnIcon.classList = video.paused ? "fas fa-play" : "fas fa-pause";
-};
-
-const handleLoadedMetadata = () => {
-  totalTime.innerText = formatTime(Math.floor(video.duration));
-  timeline.max = Math.floor(video.duration);
 };
 
 const handleSound = () => {
