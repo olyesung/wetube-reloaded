@@ -88,10 +88,10 @@ const handleFullscreen = () => {
 
 const handelKey = (event) => {
   // if (!textarea) {
-  if (event.keyCode == 32) {
+  if (event.keyCode === 32) {
     handlePlayClick();
   }
-  if (event.keyCode == 70) {
+  if (event.keyCode === 70) {
     handleFullscreen();
   }
   // }
@@ -133,4 +133,4 @@ fullScreenBtn.addEventListener("click", handleFullscreen);
 videoContainer.addEventListener("mousemove", handleMouseMove);
 videoContainer.addEventListener("mouseleave", handleMouseLeave);
 video.addEventListener("ended", handleEnded);
-window.addEventListener("keypress", handelKey);
+window.addEventListener("keydown", handelKey);
