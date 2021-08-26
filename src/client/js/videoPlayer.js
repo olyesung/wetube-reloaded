@@ -65,6 +65,7 @@ const handleTimeUpdate = () => {
 const handleLoadedMetadata = () => {
   totalTime.innerText = formatTime(Math.floor(video.duration));
   timeline.max = Math.floor(video.duration);
+  console.log("💚", video.duration, "💚");
 };
 
 const handleTimelineChange = (event) => {
