@@ -62,9 +62,9 @@ const handleTimeUpdate = () => {
   timeline.value = Math.floor(video.currentTime);
 };
 
-const handleLoadedMetadata = async () => {
+const handleLoadedMetadata = () => {
   totalTime.innerText = formatTime(Math.floor(video.duration));
-  return (timeline.max = Math.floor(video.duration));
+  timeline.max = Math.floor(video.duration);
 };
 
 const handleTimelineChange = (event) => {
@@ -86,11 +86,11 @@ const handleFullscreen = () => {
 };
 
 const handelKey = (e) => {
+  if (e.which === 70) {
+    handleFullScreen();
+  }
   if (e.which === 32) {
     handlePlayClick();
-  }
-  if (e.which === 70) {
-    return handleFullScreen();
   }
 };
 
