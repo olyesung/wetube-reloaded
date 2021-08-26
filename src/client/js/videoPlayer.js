@@ -86,7 +86,6 @@ const handleFullscreen = () => {
 };
 
 const handelKey = (event) => {
-  video.focus();
   if (event.keyCode === 32) {
     handlePlayClick();
   }
@@ -131,4 +130,4 @@ fullScreenBtn.addEventListener("click", handleFullscreen);
 videoContainer.addEventListener("mousemove", handleMouseMove);
 videoContainer.addEventListener("mouseleave", handleMouseLeave);
 video.addEventListener("ended", handleEnded);
-video.addEventListener("keydown", handelKey);
+videoContainer.addEventListener("keydown", handelKey);
