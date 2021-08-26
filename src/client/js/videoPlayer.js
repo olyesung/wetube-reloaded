@@ -85,12 +85,12 @@ const handleFullscreen = () => {
   }
 };
 
-const handelKey = (e) => {
-  if (e.which === 70) {
-    handleFullScreen();
-  }
-  if (e.which === 32) {
+const handelKey = (event) => {
+  if (event.keyCode === 32) {
     handlePlayClick();
+  }
+  if (event.keyCode === 70) {
+    handleFullscreen();
   }
 };
 
