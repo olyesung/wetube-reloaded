@@ -11,6 +11,10 @@ const addComment = (text, id) => {
   const span = document.createElement("span");
   span.innerText = ` ${text}`;
   const span2 = document.createElement("a");
+  span2.setAttribute(
+    "href=`/api/videos/${comment.id}/comment-delete`",
+    "showSignature(gg)"
+  );
   span2.innerText = "❌";
   newComment.appendChild(icon);
   newComment.appendChild(span);
