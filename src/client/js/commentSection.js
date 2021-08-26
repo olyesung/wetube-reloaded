@@ -12,7 +12,7 @@ const addComment = (text, id) => {
   span.innerText = ` ${text}`;
   const span2 = document.createElement("a");
   span2.setAttribute(
-    "href=`/api/videos/${comment.id}/comment-delete`",
+    (href = `/api/videos/${comment.id}/comment-delete`),
     "showSignature(gg)"
   );
   span2.innerText = "❌";
