@@ -13,6 +13,7 @@ const addComment = (text, id, userName, ownerId) => {
   const username = document.createElement("a");
   username.href = `/users/${String(ownerId)}`;
   username.innerText = ` ${userName}`;
+  username.style = "blue";
   const span = document.createElement("span");
   span.innerText = ` ${text}`;
   const span2 = document.createElement("a");
