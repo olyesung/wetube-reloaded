@@ -37,3 +37,7 @@
 .video__comment > a {
   color: blue;
 }
+
+textarea:focus {
+  color: $red;
+}
