@@ -38,6 +38,7 @@
   color: blue;
 }
 
-textarea:focus {
+textarea:focus,
+#videoContainer:focus {
   outline: none !important;
 }
