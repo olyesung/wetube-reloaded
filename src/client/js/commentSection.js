@@ -4,7 +4,7 @@ import Comment from "../models/Comment";
 const videoContainer = document.getElementById("videoContainer");
 const form = document.getElementById("commentForm");
 
-const addComment = async (text, id, username) => {
+const addComment = async (text, id) => {
   const videoComments = document.querySelector(".video__comments ul");
   const newComment = document.createElement("li");
   newComment.dataset.id = id;
