@@ -9,7 +9,7 @@ const addComment = (text, id, username) => {
   const icon = document.createElement("i");
   icon.className = "fas fa-comment";
   const userName = document.createElement("a");
-  console.log(text, id, comment, user);
+  console.log(text, id, video.dataset.id);
   // userName.href = `/users/${comment.owner._id}`;
   userName.innerText = "💥";
   // userName.innerText = ` ${comment.name}`;
