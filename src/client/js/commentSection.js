@@ -3,17 +3,16 @@ import { async } from "regenerator-runtime";
 const videoContainer = document.getElementById("videoContainer");
 const form = document.getElementById("commentForm");
 
-const addComment = (text, id, username) => {
+const addComment = (text, id, userName) => {
   const videoComments = document.querySelector(".video__comments ul");
   const newComment = document.createElement("li");
   newComment.dataset.id = id;
   newComment.className = "video__comment";
   const icon = document.createElement("i");
   icon.className = "fas fa-comment";
-  const userName = document.createElement("a");
-  console.log(text, id, username);
+  const username = document.createElement("a");
   // userName.href = `/users/${comment.owner._id}`;
-  userName.innerText = "💥";
+  username.innerText = ` ${userName}`;
   // userName.innerText = ` ${comment.name}`;
   const span = document.createElement("span");
   span.innerText = ` ${text}`;
@@ -21,7 +20,7 @@ const addComment = (text, id, username) => {
   span2.href = `/api/videos/${id}/comment-delete`;
   span2.innerText = "❌";
   newComment.appendChild(icon);
-  newComment.appendChild(userName);
+  newComment.appendChild(username);
   newComment.appendChild(span);
   newComment.appendChild(span2);
   videoComments.prepend(newComment);
@@ -46,7 +45,6 @@ const handleSubmit = async (event) => {
     textarea.value = "";
     const { newCommentId, userName } = await response.json();
     addComment(text, newCommentId, userName);
-    console.log(newCommentId, userName);
   }
 };
 
