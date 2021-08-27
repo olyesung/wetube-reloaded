@@ -39,6 +39,7 @@ block content
             each comment in video.comments.reverse()
                 li.video__comment(data-id=comment.id)
                     i.fas.fa-comment
+                    a(href="#")=comment.owner.name
                     span  #{comment.text}
                     if String(comment.owner._id) === String(loggedInUser._id)
                         a(href=`/api/videos/${comment.id}/comment-delete`) ❌

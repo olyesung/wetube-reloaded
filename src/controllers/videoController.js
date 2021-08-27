@@ -46,11 +46,6 @@ export const postEdit = async (req, res) => {
     return res.status(404).render("404", { pageTitle: "Video not found." });
   }
   if (String(video.owner) !== String(_id)) {
-    console.log("💜video:", video);
-    console.log("🧡video.owner:", String(video.owner));
-    console.log("💙video.owner:", video.owner);
-    console.log("💚_id:", String(_id));
-
     req.flash("error", "You are not the the owner of the video.");
     return res.status(403).redirect("/");
   }
@@ -59,10 +54,6 @@ export const postEdit = async (req, res) => {
     description,
     hashtags: Video.formatHashtags(hashtags),
   });
-  console.log("💜video:", video);
-  console.log("🧡video.owner:", String(video.owner));
-  console.log("💙video.owner:", video.owner);
-  console.log("💚_id:", String(_id));
   req.flash("success", "Changes saved.");
   return res.redirect(`/videos/${id}`);
 };
