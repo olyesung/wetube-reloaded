@@ -39,6 +39,5 @@
 }
 
 textarea:focus {
-  outline-color: $red;
-  border-color: gold;
+  outline: none !important;
 }
