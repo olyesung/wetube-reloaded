@@ -46,6 +46,7 @@ export const postEdit = async (req, res) => {
     return res.status(404).render("404", { pageTitle: "Video not found." });
   }
   if (String(video.owner) !== String(_id)) {
+    console.log("💜video:", video);
     console.log("🧡video.owner:", String(video.owner));
     console.log("💙video.owner:", video.owner);
     console.log("💚_id:", String(_id));
