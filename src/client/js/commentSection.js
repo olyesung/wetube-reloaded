@@ -1,7 +1,7 @@
 const videoContainer = document.getElementById("videoContainer");
 const form = document.getElementById("commentForm");
 
-const addComment = (text, id, name) => {
+const addComment = (text, id, username) => {
   const videoComments = document.querySelector(".video__comments ul");
   const newComment = document.createElement("li");
   newComment.dataset.id = id;
@@ -9,7 +9,7 @@ const addComment = (text, id, name) => {
   const icon = document.createElement("i");
   icon.className = "fas fa-comment";
   const userName = document.createElement("a");
-  console.log(String(name));
+  console.log(String(username));
   // userName.href = `/users/${comment.owner._id}`;
   userName.innerText = "💥";
   // userName.innerText = ` ${comment.name}`;

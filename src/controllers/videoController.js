@@ -145,7 +145,7 @@ export const createComment = async (req, res) => {
     text,
     owner: user._id,
     video: id,
-    name: user.name,
+    username,
   });
   console.log("💛", user, "💛");
   console.log("🧡", comment, "🧡");
