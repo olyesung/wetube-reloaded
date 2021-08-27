@@ -4,6 +4,7 @@ const form = document.getElementById("commentForm");
 const addComment = (text, id, name) => {
   const videoComments = document.querySelector(".video__comments ul");
   const newComment = document.createElement("li");
+  console.log("💜", dataset);
   newComment.dataset.id = id;
   newComment.className = "video__comment";
   const icon = document.createElement("i");
