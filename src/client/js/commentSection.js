@@ -17,6 +17,7 @@ const addComment = (text, id, name) => {
   span2.href = `/api/videos/${id}/comment-delete`;
   span2.innerText = "❌";
   newComment.appendChild(icon);
+  newComment.appendChild(userName);
   newComment.appendChild(span);
   newComment.appendChild(span2);
   videoComments.prepend(newComment);
