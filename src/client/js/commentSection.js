@@ -1,5 +1,5 @@
 import { async } from "regenerator-runtime";
-import Comment from "../models/Comment";
+import Comment from "../../models/Comment";
 
 const videoContainer = document.getElementById("videoContainer");
 const form = document.getElementById("commentForm");
@@ -9,10 +9,11 @@ const addComment = async (text, id) => {
   const newComment = document.createElement("li");
   newComment.dataset.id = id;
   newComment.className = "video__comment";
+  const comment = await Comment.findById(id);
   const icon = document.createElement("i");
   icon.className = "fas fa-comment";
   const userName = document.createElement("a");
-  console.log(text, id);
+  console.log(text, id, comment);
   // userName.href = `/users/${comment.owner._id}`;
   userName.innerText = "💥";
   // userName.innerText = ` ${comment.name}`;
