@@ -3,7 +3,7 @@ import { async } from "regenerator-runtime";
 const videoContainer = document.getElementById("videoContainer");
 const form = document.getElementById("commentForm");
 
-const addComment = (text, id, userName) => {
+const addComment = (text, id, userName, ownerId) => {
   const videoComments = document.querySelector(".video__comments ul");
   const newComment = document.createElement("li");
   newComment.dataset.id = id;
@@ -11,9 +11,8 @@ const addComment = (text, id, userName) => {
   const icon = document.createElement("i");
   icon.className = "fas fa-comment";
   const username = document.createElement("a");
-  // userName.href = `/users/${comment.owner._id}`;
+  userName.href = `/users/${ownerId}`;
   username.innerText = ` ${userName}`;
-  // userName.innerText = ` ${comment.name}`;
   const span = document.createElement("span");
   span.innerText = ` ${text}`;
   const span2 = document.createElement("a");
@@ -43,8 +42,8 @@ const handleSubmit = async (event) => {
   });
   if (response.status === 201) {
     textarea.value = "";
-    const { newCommentId, userName } = await response.json();
-    addComment(text, newCommentId, userName);
+    const { newCommentId, userName, ownerId } = await response.json();
+    addComment(text, newCommentId, userName, ownerId);
   }
 };
 
