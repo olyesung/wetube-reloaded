@@ -39,6 +39,7 @@
 }
 
 textarea:focus,
-#videoContainer:focus {
+#videoContainer:focus,
+video:focus {
   outline: none !important;
 }
