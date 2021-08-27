@@ -90,10 +90,12 @@ const handleFullscreen = () => {
 
 const handelKey = (event) => {
   if (event.keyCode === 32) {
+    video.focus();
     textarea.blur();
     handlePlayClick();
   }
   if (event.keyCode === 70) {
+    video.focus();
     textarea.blur();
     handleFullscreen();
   }
