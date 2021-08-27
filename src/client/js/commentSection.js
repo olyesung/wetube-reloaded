@@ -4,14 +4,13 @@ const form = document.getElementById("commentForm");
 const addComment = (text, id, name) => {
   const videoComments = document.querySelector(".video__comments ul");
   const newComment = document.createElement("li");
-  console.log("💜", dataset);
   newComment.dataset.id = id;
   newComment.className = "video__comment";
   const icon = document.createElement("i");
   icon.className = "fas fa-comment";
   const userName = document.createElement("a");
-  userName.href = `/api/videos/${id}/comment-delete`;
-  userName.innerText = ` ${name}`;
+  userName.href = `/users/${comment.owner._id}`;
+  userName.innerText = ` ${comment.name}`;
   const span = document.createElement("span");
   span.innerText = ` ${text}`;
   const span2 = document.createElement("a");
