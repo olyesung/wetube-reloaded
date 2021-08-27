@@ -62,10 +62,11 @@ const handleLoadedMetadata = () => {
   timeline.max = Math.floor(video.duration);
 };
 
-const handleTimeUpdate = (event) => {
+const handleTimeUpdate = () => {
   currenTime.innerText = formatTime(Math.floor(video.currentTime));
   timeline.value = Math.floor(video.currentTime);
-  event.handleLoadedMetadata();
+  total2Time.innerText = formatTime(Math.floor(video.duration));
+  timeline.max = Math.floor(video.duration);
 };
 
 const handleTimelineChange = (event) => {
