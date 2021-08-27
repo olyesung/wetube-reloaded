@@ -11,7 +11,7 @@ const addComment = (text, id, userName, ownerId) => {
   const icon = document.createElement("i");
   icon.className = "fas fa-comment";
   const username = document.createElement("a");
-  username.href = `/users/${ownerId}`;
+  username.href = `/users/${String(ownerId)}`;
   username.innerText = ` ${userName}`;
   const span = document.createElement("span");
   span.innerText = ` ${text}`;
