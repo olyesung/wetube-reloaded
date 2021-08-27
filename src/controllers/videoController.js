@@ -47,6 +47,7 @@ export const postEdit = async (req, res) => {
   }
   if (String(video.owner) !== String(_id)) {
     console.log("🧡video.owner:", String(video.owner));
+    console.log("💙video.owner:", video.owner);
     console.log("💚_id:", String(_id));
 
     req.flash("error", "You are not the the owner of the video.");
