@@ -59,6 +59,10 @@ export const postEdit = async (req, res) => {
     description,
     hashtags: Video.formatHashtags(hashtags),
   });
+  console.log("💜video:", video);
+  console.log("🧡video.owner:", String(video.owner));
+  console.log("💙video.owner:", video.owner);
+  console.log("💚_id:", String(_id));
   req.flash("success", "Changes saved.");
   return res.redirect(`/videos/${id}`);
 };
