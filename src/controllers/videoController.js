@@ -151,7 +151,9 @@ export const createComment = async (req, res) => {
   console.log("🧡", comment, "🧡");
   video.comments.push(comment._id);
   video.save();
-  return res.status(201).json({ newCommentId: comment._id });
+  return res
+    .status(201)
+    .json({ newCommentId: comment._id, userName: comment.username });
 };
 
 export const deleteComment = async (req, res) => {
